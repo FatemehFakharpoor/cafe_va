@@ -1,0 +1,22 @@
+Options -Indexes
+RewriteEngine On
+
+# مسیرهای API
+RewriteRule ^api/products$ api/products.php [L]
+RewriteRule ^api/cart$ api/cart.php [L]
+
+# صفحات اصلی
+RewriteRule ^blog$ blog.php [L]
+RewriteRule ^contact$ contact.php [L]
+
+# مسیر assets
+RewriteRule ^assets/(.*)$ assets/$1 [L]
+
+# مسیر آپلود
+RewriteRule ^uploads/(.*)$ assets/uploads/$1 [L]
+
+# جلوگیری از دسترسی مستقیم به پوشه‌ها
+<FilesMatch "\.(sql|log|ini)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
